@@ -1,0 +1,4 @@
+/db_data/
+/wordpress/
+.DS_Store
+debug.log

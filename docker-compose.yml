@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+    db:
+        image: mariadb:10.2
+        environment:
+            MYSQL_DATABASE: outliers
+            MYSQL_USER: outliers
+            MYSQL_PASSWORD: outliers
+            MYSQL_ROOT_PASSWORD: 'root'
+        volumes:
+            - ./db:/docker-entrypoint-initdb.d/
+            - ./db_data:/var/lib/mysql
+
+    wp:
+        image: wordpress:latest
+        depends_on:
+            - db
+        restart: always
+        ports:
+            - "8000:80"
+        volumes:
+            - "./:/var/www/html/wp-content:delegated"
+            - "./wordpress:/var/www/html:delegated"
+        environment:
+            WORDPRESS_DB_HOST: db:3306
+            WORDPRESS_DB_USER: outliers
+            WORDPRESS_DB_PASSWORD: outliers
+            WORDPRESS_DB_NAME: outliers
+            WORDPRESS_DEBUG: 1
+            WORDPRESS_CONFIG_EXTRA: |
+              define( 'WP_DEBUG_LOG', true );
