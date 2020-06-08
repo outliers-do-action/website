@@ -1,5 +1,5 @@
 # Outliers Website
-This repository contains the website of outliers.org, no sensitive information should be commited to the repository. All senstive information and passwords contained in the docker images are just for development purposes and does not represent the live site.
+This repository contains the website of outliers.org.za, no sensitive information should be commited to the repository. All senstive information and passwords contained in the docker images are just for development purposes and does not represent the live site.
 
 ## Developer Setup
 ### Requirements
