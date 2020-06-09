@@ -100,4 +100,32 @@ class Network_Partners_Admin {
 
 	}
 
+	/**
+	 * Register the meta box that will contain the network partners fields.
+	 *
+	 * @return void
+	 */
+	public function network_partners_meta_boxes() {
+		add_meta_box( 'network-partners-general', __( 'General Information', 'network-partners' ), array( $this, 'network_partners_general_markup' ), 'network_partners' );
+	}
+
+	/**
+	 * Markup to display in the network partners general meta box.
+	 *
+	 * @return void
+	 */
+	public function network_partners_general_markup( $post ) {
+
+	}
+
+	/**
+	 * Handle saving of network partners meta boxes fields.
+	 *
+	 * @param [type] $post_id
+	 * @return void
+	 */
+	public function network_partners_meta_boxes_save( $post_id ) {
+
+	}
+
 }

@@ -157,6 +157,9 @@ class Network_Partners {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'network_partners_meta_boxes' );
+		$this->loader->add_action( 'save_post_network_partners', $plugin_admin, 'network_partners_meta_boxes_save' );
+
 	}
 
 	/**
