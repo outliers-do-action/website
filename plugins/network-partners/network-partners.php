@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Network Partners
  * Plugin URI:        https://outliers.org.za
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Register the Network Partners custom post type.
  * Version:           1.0.0
  * Author:            Do Action Outliers
  * Author URI:        https://outliers.org.za
