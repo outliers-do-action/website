@@ -173,6 +173,7 @@ class Network_Partners {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 		$this->loader->add_action( 'init', $plugin_public, 'network_partners_post_type' );
+		$this->loader->add_action( 'acf/fields/google_map/api', $plugin_public, 'acf_google_maps_key' );
 	}
 
 	/**

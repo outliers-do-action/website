@@ -145,7 +145,7 @@ class Network_Partners_Public {
 			'label'                 => __( 'Network Partner', 'network-partners' ),
 			'description'           => __( 'Network partners', 'network-partners' ),
 			'labels'                => $labels,
-			'supports'              => array( 'title', 'editor' ),
+			'supports'              => array( 'title', 'editor', 'thumbnail' ),
 			'hierarchical'          => false,
 			'public'                => true,
 			'show_ui'               => true,
@@ -163,6 +163,17 @@ class Network_Partners_Public {
 			'show_in_rest'          => true,
 		);
 		register_post_type( 'network_partners', $args );
+	}
+
+	/**
+	 * Setup an API key for ACF google maps.
+	 *
+	 * @param array $api
+	 * @return void
+	 */
+	public function acf_google_maps_key( $api ) {
+		$api['key'] = 'AIzaSyB03S15KD_W8Qq_FBJWNA03G_vg4E1vEyk';
+		return $api;
 	}
 
 }
