@@ -156,7 +156,8 @@ class Network_Partners {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
+		$this->loader->add_filter( 'write_your_story', $plugin_admin, 'write_your_story_placeholder', 10, 2 );
+		$this->loader->add_filter( 'enter_title_here', $plugin_admin, 'enter_title_here_placeholder', 10, 2 );
 	}
 
 	/**

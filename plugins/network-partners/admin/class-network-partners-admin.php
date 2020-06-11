@@ -100,4 +100,34 @@ class Network_Partners_Admin {
 
 	}
 
+	/**
+	 * Alter the default write your story placeholder text for network partners post type.
+	 *
+	 * @param string $text
+	 * @param WP_Post $post
+	 * @return string
+	 */
+	public function write_your_story_placeholder( $text, $post ) {
+		if ( 'network_partners' !== get_post_type( $post ) ) {
+			return $text;
+		}
+
+		return __( 'Detailed network partner description here, use the fields below for entering details about the network partner.', 'network-partners' );
+	}
+
+	/**
+	 * Alter the default placeholder text for the network partners title field.
+	 *
+	 * @param string $text
+	 * @param WP_Post $post
+	 * @return string
+	 */
+	public function enter_title_here_placeholder( $text, $post ) {
+		if ( 'network_partners' !== get_post_type( $post ) ) {
+			return $text;
+		}
+
+		return __( 'Network partner name', 'network-partners' );
+	}
+
 }
