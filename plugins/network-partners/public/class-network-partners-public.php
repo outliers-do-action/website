@@ -74,7 +74,6 @@ class Network_Partners_Public {
 		 */
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/network-partners-public.css', array(), $this->version, 'all' );
-		wp_enqueue_style( 'outliers-fonts', 'https://fonts.googleapis.com/css?family=Montserrat', array(), null );
 
 	}
 
@@ -173,7 +172,7 @@ class Network_Partners_Public {
 	 * @return void
 	 */
 	public function acf_google_maps_key( $api ) {
-		$api['key'] = 'AIzaSyB03S15KD_W8Qq_FBJWNA03G_vg4E1vEyk';
+		$api['key'] = 'AIzaSyC0hcru137zwanoghuzO5F42AK29-_7-X0';
 		return $api;
 	}
 
