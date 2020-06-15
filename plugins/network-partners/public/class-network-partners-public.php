@@ -176,4 +176,30 @@ class Network_Partners_Public {
 		return $api;
 	}
 
+	/**
+	 * Change the link of network partners to external one if available.
+	 *
+	 * @param sting $link
+	 * @param WP_Post $post
+	 * @param bool $leavename
+	 * @return void
+	 */
+	public function link_to_external( $link, $post, $leavename ) {
+		
+		// Make sure we are on the right custom post type.
+		if ( 'network_partners' !== get_post_type( $post ) || is_admin() ) {
+			return $link;
+		}
+
+		if ( ! function_exists( 'get_field' ) ) {
+			return $link;
+		}
+
+		if ( ! empty( get_field( 'url', $post->ID ) ) ) {
+			return get_field( 'url', $post->ID );
+		}
+		// Don't link anywhere if no value is assigned.
+		return '#';
+	}
+
 }
