@@ -102,7 +102,7 @@ class Network_Partners_Public {
 			$this->plugin_name,
 			'networkPartnersVars',
 			[
-				'markerIcon' => plugin_dir_url( __FILE__ ) . 'images/outliers-marker.png',
+				'markerIcon' => plugin_dir_url( __FILE__ ) . 'images/outliers-map-dot.png',
 			]
 		);
 
