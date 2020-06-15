@@ -136,10 +136,14 @@
 		else
 		{
 			// fit to bounds
-			map.setCenter( bounds.getCenter() );
-			map.setZoom( 8 ); // Change the zoom value as required
+			//map.setCenter( bounds.getCenter() );
+			//map.setZoom( 8 ); // Change the zoom value as required
 			//map.fitBounds( bounds ); // This is the default setting which I have uncommented to stop the World Map being repeated
 
+			// Fit to Cape Town since the network is wide spread, most partners are in cape town.
+			var capeTown = new google.maps.LatLng( -33.918861, 18.423300 );
+			map.setCenter( capeTown );
+			map.setZoom( 10 );
 		}
 
 	}
