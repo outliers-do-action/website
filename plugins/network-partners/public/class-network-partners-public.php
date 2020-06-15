@@ -51,7 +51,6 @@ class Network_Partners_Public {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
 	}
 
 	/**
@@ -97,6 +96,7 @@ class Network_Partners_Public {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/network-partners-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( 'google-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC0hcru137zwanoghuzO5F42AK29-_7-X0', null, null, true );
 
 	}
 
@@ -200,6 +200,54 @@ class Network_Partners_Public {
 		}
 		// Don't link anywhere if no value is assigned.
 		return '#';
+	}
+
+	/**
+	 * Shortcode to display a map with all network partners.
+	 *
+	 * @param array $atts
+	 * @return string
+	 */
+	public function google_maps_shortcode( $atts = [] ) {
+		ob_start();
+		// Setup args for retrieving all network partners.
+		$args = array(
+			'post_type'      => 'network_partners',
+			'posts_per_page' => -1,
+		);
+		$the_query = new WP_Query( $args );
+
+		echo '<div class=\'acf-map\'>';
+		while ( $the_query->have_posts() ) {
+			$the_query->the_post();
+			
+			// Get all the fields ready to build the placemarker.
+			$location = get_field( 'location' );
+			$description = get_field( 'short_description' );
+			$url = get_field( 'url' );
+
+			if ( ! empty( $location ) ) {
+			?>
+				<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
+			<?php
+				if ( ! empty( $url ) ) {
+				?>
+					<h4><a href="<?php echo esc_url_raw( $url ); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+				<?php
+				} else {
+				?>
+					<h4><?php the_title(); ?></h4>
+				<?php
+				}
+				?>
+					<p class="address"><?php esc_html_e( $location['address'] ); ?></p>
+					<p class="description"><?php echo $description; ?></p>
+				</div>
+			<?php
+			}
+		}
+		echo '</div>';
+		return ob_get_clean();
 	}
 
 }

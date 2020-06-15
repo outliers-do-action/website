@@ -78,7 +78,6 @@ class Network_Partners {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
 	}
 
 	/**
@@ -176,6 +175,7 @@ class Network_Partners {
 		$this->loader->add_action( 'init', $plugin_public, 'network_partners_post_type' );
 		$this->loader->add_action( 'acf/fields/google_map/api', $plugin_public, 'acf_google_maps_key' );
 		$this->loader->add_filter( 'post_type_link', $plugin_public, 'link_to_external', 10, 3 );
+		add_shortcode( 'network_partners_map', array( $plugin_public, 'google_maps_shortcode' ) );
 	}
 
 	/**
