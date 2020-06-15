@@ -233,13 +233,13 @@ class Network_Partners_Public {
 						<?php
 						if ( ! empty( $url ) ) {
 						?>
-							<div class="marker-img-container"><a href="<?php echo esc_url_raw( $url ); ?>" rel="bookmark" target="_blank"><?php the_post_thumbnail( 'thumbnail' ); ?></a></div>
+							<div class="marker-img-container"><a href="<?php echo esc_url_raw( $url ); ?>" rel="bookmark" target="_blank"><?php the_post_thumbnail( 'thumbnail', [ 'class' => 'skip-lazy' ] ); ?></a></div>
 							<div class="marker-content-container">
 								<a href="<?php echo esc_url_raw( $url ); ?>" rel="bookmark" target="_blank"><h4><?php the_title(); ?></h4></a>
 						<?php
 						} else {
 						?>
-							<div class="marker-img-container"><?php the_post_thumbnail( 'thumbnail' ); ?></div>
+							<div class="marker-img-container"><?php the_post_thumbnail( 'thumbnail', [ 'class' => 'skip-lazy' ] ); ?></div>
 							<div class="marker-content-container">
 								<h4><?php the_title(); ?></h4>
 						<?php
