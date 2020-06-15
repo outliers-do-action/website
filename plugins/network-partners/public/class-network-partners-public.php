@@ -98,6 +98,14 @@ class Network_Partners_Public {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/network-partners-public.js', array( 'jquery' ), $this->version, false );
 		wp_enqueue_script( 'google-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC0hcru137zwanoghuzO5F42AK29-_7-X0', null, null, true );
 
+		wp_localize_script(
+			$this->plugin_name,
+			'networkPartnersVars',
+			[
+				'markerIcon' => plugin_dir_url( __FILE__ ) . 'images/outliers-marker.png',
+			]
+		);
+
 	}
 
 	/**
