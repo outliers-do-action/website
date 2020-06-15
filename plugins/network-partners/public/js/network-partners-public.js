@@ -82,18 +82,18 @@
 		map.markers.push( marker );
 
 		// if marker contains HTML, add it to an infoWindow
-		if( $marker.html() )
-		{
-			// create info window
-			var infowindow = new google.maps.InfoWindow({
-				content		: $marker.html()
-			});
+		if( $marker.html() ){
 
 			// show info window when marker is clicked
 			google.maps.event.addListener(marker, 'click', function() {
-
-				infowindow.open( map, marker );
-
+				if ( infoWindow ) {
+					infoWindow.close();
+				}
+				// create info window
+				infoWindow = new google.maps.InfoWindow({
+					content		: $marker.html()
+				});
+				infoWindow.open( map, marker );
 			});
 		}
 
@@ -145,6 +145,7 @@
 	}
 
 	var map = null;
+	var infoWindow = null;
 
 	$( document ).ready( function() {
 		// Open links in new windows.
