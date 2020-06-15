@@ -156,6 +156,14 @@
 			return false;
 		} );
 
+		// Change cursor if not linked anywhere.
+		$( '.ptam-block-post-grid-image a img' ).hover( function() {
+			if ( '#' == this.parentElement.href[this.parentElement.href.length -1] ) {
+				$( this.parentElement ).addClass( 'no-link' );
+				$( this ).addClass( 'no-link' );
+			}
+		} );
+
 		// Display network partner maps if available on page.
 		$( '.acf-map' ).each( function() {
 			// create map
